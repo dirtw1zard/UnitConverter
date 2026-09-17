@@ -11,9 +11,9 @@ public class ConversionsModel : PageModel
     {
         Input = "3.1415";
         ViewData.Add("ConversionType", "Miles to Kilometers");
-
-        Convert.ToDouble(Input);
-
-        Output = Convert.ToString(Input);
+        ViewData.Add("Title", "Conversions");
+        UnitOf.Length unit = new UnitOf.Length().FromMiles(Convert.ToDouble(Input));
+        double x = unit.ToKilometers();
+        Output = Convert.ToString(x);
     }
 }
